@@ -1,5 +1,9 @@
 ---
 - name: install ferm packages
-  apt: pkg={{ item }} state=latest update_cache=yes
-  with_items:
-    - ferm
+  apt:
+    name: {{ packages }}
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+      - ferm
